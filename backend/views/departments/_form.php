@@ -14,9 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'department_name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'department_created_time')->textInput() ?>
-
-    <?= $form->field($model, 'department_status')->textInput() ?>
+    <?= $form->field($model, 'department_status')->textInput()->dropDownList(['0' => 'Inactive' , '1' => 'Active', ], ['prompt' => 'Status']) ?>
 
     <?= $form->field($model, 'branches_id')->textInput() ?>
 
