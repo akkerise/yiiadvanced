@@ -37,7 +37,6 @@ class BranchesController extends Controller
     {
         $searchModel = new BranchesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,

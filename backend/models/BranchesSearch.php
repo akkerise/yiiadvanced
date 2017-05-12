@@ -18,8 +18,8 @@ class BranchesSearch extends Branches
     public function rules()
     {
         return [
-            [['id', 'branch_status', 'companies_id'], 'integer'],
-            [['branch_name', 'branch_address', 'branch_created_time'], 'safe'],
+            [['id'], 'integer'],
+            [['companies_id' ,'branch_name', 'branch_address', 'branch_created_time'], 'safe'],
         ];
     }
 
@@ -60,9 +60,9 @@ class BranchesSearch extends Branches
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'companies_id' => $this->companies_id,
             'branch_status' => $this->branch_status,
             'branch_created_time' => $this->branch_created_time,
-            'companies_id' => $this->companies_id,
         ]);
 
         $query->andFilterWhere(['like', 'branch_name', $this->branch_name])

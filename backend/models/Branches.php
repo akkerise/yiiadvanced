@@ -52,7 +52,7 @@ class Branches extends \yii\db\ActiveRecord
             'branch_address' => 'Branch Address',
             'branch_status' => 'Branch Status',
             'branch_created_time' => 'Branch Created Time',
-            'companies_id' => 'Companies ID',
+            'companies_id' => 'Company Name',
         ];
     }
 

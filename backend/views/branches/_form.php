@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use backend\models\Companies;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Branches */
@@ -12,13 +14,21 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->field($model, 'companies_id')->textInput() ?>
+
+    <?= $form->field($model, 'companies_id')->dropDownList(
+        ArrayHelper::map(Companies::find()->all(), 'id', 'company_name'),
+        ['prompt' => 'Select Company'])
+    ?>
+
     <?= $form->field($model, 'branch_name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'branch_address')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'branch_status')->textInput()->dropDownList(['0' => 'Inactive', '1' => 'Active',], ['prompt' => 'Status']) ?>
-
-    <?= $form->field($model, 'companies_id')->textInput() ?>
+    <?= $form->field($model, 'branch_status')->textInput()->dropDownList(
+        ['0' => 'Inactive', '1' => 'Active',],
+        ['prompt' => 'Status'])
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
